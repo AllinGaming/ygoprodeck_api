@@ -1,5 +1,5 @@
 name: ygoprodeck_api
-version: 0.1.0
+version: 0.1.1
 description: A Dart wrapper for the YGOPRODeck Yu-Gi-Oh! API (v7).
 repository: https://github.com/AllinGaming/ygoprodeck_api
 issue_tracker: https://github.com/AllinGaming/ygoprodeck_api/issues
