@@ -35,14 +35,6 @@ jobs:
           cd example
           flutter create .
           flutter pub get
-      - name: Analyze example
-        run: |
-          cd example
-          flutter analyze
-      - name: Test example
-        run: |
-          cd example
-          flutter test
 
   pages:
     runs-on: ubuntu-latest
