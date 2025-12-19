@@ -1,12 +1,17 @@
+/// Comparison operators for stat filters.
 enum StatComparator { lt, lte, gt, gte, eq }
 
+/// Filter for numeric stats like ATK/DEF/Level.
 class StatFilter {
   StatFilter({
     required this.value,
     this.comparator = StatComparator.eq,
   });
 
+  /// Numeric value to compare against.
   final int value;
+
+  /// Comparison operator.
   final StatComparator comparator;
 
   String toParameter() {
@@ -25,6 +30,7 @@ class StatFilter {
   }
 }
 
+/// Query parameters for the card info endpoint.
 class CardInfoQuery {
   CardInfoQuery({
     this.name,
@@ -57,33 +63,88 @@ class CardInfoQuery {
     this.tcgplayerData,
   });
 
+  /// Exact card name(s), pipe separated.
   final List<String>? name;
+
+  /// Fuzzy name search.
   final String? fuzzyName;
+
+  /// Card passcode ID(s).
   final List<int>? id;
+
+  /// Konami ID.
   final int? konamiId;
+
+  /// Card type filter(s).
   final List<String>? type;
+
+  /// ATK filter.
   final StatFilter? atk;
+
+  /// DEF filter.
   final StatFilter? def;
+
+  /// Level filter.
   final StatFilter? level;
+
+  /// Race/type filter(s).
   final List<String>? race;
+
+  /// Attribute filter(s).
   final List<String>? attribute;
+
+  /// Link value filter.
   final int? link;
+
+  /// Link marker filter(s).
   final List<String>? linkMarker;
+
+  /// Pendulum scale filter.
   final int? scale;
+
+  /// Card set name filter.
   final String? cardSet;
+
+  /// Archetype filter.
   final String? archetype;
+
+  /// Banlist filter.
   final String? banlist;
+
+  /// Sort order.
   final String? sort;
+
+  /// Card format filter.
   final String? format;
+
+  /// Include misc info.
   final bool? misc;
+
+  /// Filter for staples.
   final bool? staple;
+
+  /// Filter for effect cards.
   final bool? hasEffect;
+
+  /// Start date (YYYY-mm-dd).
   final String? startDate;
+
+  /// End date (YYYY-mm-dd).
   final String? endDate;
+
+  /// Date region (tcg or ocg).
   final String? dateRegion;
+
+  /// Language code.
   final String? language;
+
+  /// Page size.
   final int? num;
+
+  /// Offset for pagination.
   final int? offset;
+
+  /// Use TCGplayer set data.
   final bool? tcgplayerData;
 
   Map<String, String> toQueryParameters() {

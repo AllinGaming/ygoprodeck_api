@@ -1,3 +1,4 @@
+/// Cached response data and expiry information.
 class CacheEntry {
   CacheEntry({
     required this.body,
@@ -6,9 +7,16 @@ class CacheEntry {
     this.key,
   });
 
+  /// Raw response body.
   final String body;
+
+  /// Creation timestamp.
   final DateTime createdAt;
+
+  /// Expiration timestamp.
   final DateTime expiresAt;
+
+  /// Original cache key (optional).
   final String? key;
 
   bool get isExpired => DateTime.now().isAfter(expiresAt);
@@ -32,23 +40,36 @@ class CacheEntry {
   }
 }
 
+/// Cache storage interface.
 abstract class CacheStore {
+  /// Read a cached entry by key.
   Future<CacheEntry?> read(String key, {bool allowExpired = false});
+
+  /// Write a cached entry by key.
   Future<void> write(String key, CacheEntry entry);
+
+  /// Delete a cached entry by key.
   Future<void> delete(String key);
 }
 
+/// Cache entry with its key.
 class CacheEntryInfo {
   CacheEntryInfo({required this.key, required this.entry});
 
+  /// Cache key.
   final String key;
+
+  /// Cached entry data.
   final CacheEntry entry;
 }
 
+/// Optional cache inspection interface.
 abstract class CacheInspector {
+  /// List cached entries with metadata.
   Future<List<CacheEntryInfo>> listEntries();
 }
 
+/// In-memory cache store.
 class MemoryCacheStore implements CacheStore, CacheInspector {
   final Map<String, CacheEntry> _cache = {};
 
@@ -83,6 +104,7 @@ class MemoryCacheStore implements CacheStore, CacheInspector {
   }
 }
 
+/// Cache policy defining TTLs per endpoint.
 class CachePolicy {
   CachePolicy({required Map<String, Duration?> ttlByPath})
       : _ttlByPath = ttlByPath;
@@ -105,12 +127,14 @@ class CachePolicy {
   }
 }
 
+/// Cache read/write behavior.
 enum CacheMode {
   normal,
   offlineOnly,
   refreshOnly,
 }
 
+/// In-memory rate limiter for request throttling.
 class RateLimiter {
   RateLimiter._(this._limit, this._window);
 

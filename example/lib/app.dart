@@ -454,8 +454,7 @@ class _HomePageState extends State<_HomePage> {
           child: const Text('Next'),
         ),
         const SizedBox(width: 12),
-        if (meta != null)
-          Text('Rows: ${meta.currentRows}/${meta.totalRows}'),
+        if (meta != null) Text('Rows: ${meta.currentRows}/${meta.totalRows}'),
       ],
     );
   }
@@ -520,7 +519,8 @@ class _HomePageState extends State<_HomePage> {
                 child: const Text('Fetch'),
               ),
             ),
-            if (state.loadingRandom) const LinearProgressIndicator(minHeight: 2),
+            if (state.loadingRandom)
+              const LinearProgressIndicator(minHeight: 2),
             if (state.randomError != null)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
@@ -931,9 +931,7 @@ class _HomePageState extends State<_HomePage> {
     }
 
     if (uri != null && uri.scheme.startsWith('http')) {
-      title = uri.pathSegments.isNotEmpty
-          ? uri.pathSegments.last
-          : uri.path;
+      title = uri.pathSegments.isNotEmpty ? uri.pathSegments.last : uri.path;
       if (uri.queryParameters.isNotEmpty) {
         subtitle = _summarizeQuery(uri.queryParameters);
       }

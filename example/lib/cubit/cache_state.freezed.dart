@@ -8,12 +8,12 @@ mixin _$CacheState {
   List<CacheEntryInfo> get entries => throw UnimplementedError();
   String? get error => throw UnimplementedError();
 
-  $CacheStateCopyWith<CacheState> get copyWith =>
-      throw UnimplementedError();
+  $CacheStateCopyWith<CacheState> get copyWith => throw UnimplementedError();
 }
 
 abstract class $CacheStateCopyWith<$Res> {
-  factory $CacheStateCopyWith(CacheState value, $Res Function(CacheState) then) =
+  factory $CacheStateCopyWith(
+          CacheState value, $Res Function(CacheState) then) =
       _$CacheStateCopyWithImpl<$Res>;
   $Res call({bool loading, List<CacheEntryInfo> entries, String? error});
 }
@@ -33,9 +33,8 @@ class _$CacheStateCopyWithImpl<$Res> implements $CacheStateCopyWith<$Res> {
     return _then(
       _value.copyWith(
         loading: loading == null ? _value.loading : loading as bool,
-        entries: entries == null
-            ? _value.entries
-            : entries as List<CacheEntryInfo>,
+        entries:
+            entries == null ? _value.entries : entries as List<CacheEntryInfo>,
         error: error == freezed ? _value.error : error as String?,
       ),
     );
@@ -95,8 +94,7 @@ abstract class _$_CacheStateCopyWith<$Res>
   $Res call({bool loading, List<CacheEntryInfo> entries, String? error});
 }
 
-class _$_CacheStateCopyWithImpl<$Res>
-    extends _$CacheStateCopyWithImpl<$Res>
+class _$_CacheStateCopyWithImpl<$Res> extends _$CacheStateCopyWithImpl<$Res>
     implements _$_CacheStateCopyWith<$Res> {
   _$_CacheStateCopyWithImpl(
       _$_CacheState value, $Res Function(_$_CacheState) then)
@@ -114,9 +112,8 @@ class _$_CacheStateCopyWithImpl<$Res>
     return _then(
       _$_CacheState(
         loading: loading == null ? _value.loading : loading as bool,
-        entries: entries == null
-            ? _value.entries
-            : entries as List<CacheEntryInfo>,
+        entries:
+            entries == null ? _value.entries : entries as List<CacheEntryInfo>,
         error: error == freezed ? _value.error : error as String?,
       ),
     );

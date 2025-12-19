@@ -114,8 +114,7 @@ class _$_DeckState implements _DeckState {
       _$_DeckStateCopyWithImpl<_$_DeckState>(this, (value) => value);
 }
 
-abstract class _$_DeckStateCopyWith<$Res>
-    implements $DeckStateCopyWith<$Res> {
+abstract class _$_DeckStateCopyWith<$Res> implements $DeckStateCopyWith<$Res> {
   factory _$_DeckStateCopyWith(
           _$_DeckState value, $Res Function(_$_DeckState) then) =
       _$_DeckStateCopyWithImpl<$Res>;
@@ -129,11 +128,9 @@ abstract class _$_DeckStateCopyWith<$Res>
   });
 }
 
-class _$_DeckStateCopyWithImpl<$Res>
-    extends _$DeckStateCopyWithImpl<$Res>
+class _$_DeckStateCopyWithImpl<$Res> extends _$DeckStateCopyWithImpl<$Res>
     implements _$_DeckStateCopyWith<$Res> {
-  _$_DeckStateCopyWithImpl(
-      _$_DeckState value, $Res Function(_$_DeckState) then)
+  _$_DeckStateCopyWithImpl(_$_DeckState value, $Res Function(_$_DeckState) then)
       : super(value, (value) => then(value as _$_DeckState));
 
   @override

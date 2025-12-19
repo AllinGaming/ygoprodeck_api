@@ -1,3 +1,4 @@
+/// Summary info for a card set.
 class CardSetListItem {
   CardSetListItem({
     required this.setName,
@@ -6,9 +7,16 @@ class CardSetListItem {
     required this.tcgDate,
   });
 
+  /// Set name.
   final String setName;
+
+  /// Set code.
   final String setCode;
+
+  /// Number of cards in the set.
   final int numOfCards;
+
+  /// TCG release date.
   final String? tcgDate;
 
   factory CardSetListItem.fromJson(Map<String, dynamic> json) {

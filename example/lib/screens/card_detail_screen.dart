@@ -15,40 +15,39 @@ class CardDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final image = card.cardImages?.isNotEmpty == true
-        ? card.cardImages!.first
-        : null;
+    final image =
+        card.cardImages?.isNotEmpty == true ? card.cardImages!.first : null;
     final imageUrl = image?.imageUrlSmall ?? image?.imageUrl;
     final body = ListView(
       padding: const EdgeInsets.all(16),
       children: [
-          if (imageUrl != null && !kIsWeb)
-            LayoutBuilder(
-              builder: (context, constraints) {
-                final maxWidth = constraints.maxWidth;
-                final width = maxWidth < 420 ? maxWidth : 240.0;
-                return Center(
-                  child: SizedBox(
-                    width: width,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: CachedNetworkImage(
-                        imageUrl: image?.imageUrl ?? imageUrl,
-                        fit: BoxFit.cover,
-                        placeholder: (context, _) => const AspectRatio(
-                          aspectRatio: 0.7,
-                          child: Center(child: CircularProgressIndicator()),
-                        ),
-                        errorWidget: (context, _, __) => const AspectRatio(
-                          aspectRatio: 0.7,
-                          child: Center(child: Icon(Icons.broken_image)),
-                        ),
+        if (imageUrl != null && !kIsWeb)
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final maxWidth = constraints.maxWidth;
+              final width = maxWidth < 420 ? maxWidth : 240.0;
+              return Center(
+                child: SizedBox(
+                  width: width,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: CachedNetworkImage(
+                      imageUrl: image?.imageUrl ?? imageUrl,
+                      fit: BoxFit.cover,
+                      placeholder: (context, _) => const AspectRatio(
+                        aspectRatio: 0.7,
+                        child: Center(child: CircularProgressIndicator()),
+                      ),
+                      errorWidget: (context, _, __) => const AspectRatio(
+                        aspectRatio: 0.7,
+                        child: Center(child: Icon(Icons.broken_image)),
                       ),
                     ),
                   ),
-                );
-              },
-            )
+                ),
+              );
+            },
+          )
         else if (imageUrl != null && kIsWeb)
           const Text(
             'Image loading is disabled on web due to CORS.',

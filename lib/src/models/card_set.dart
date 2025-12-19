@@ -1,3 +1,4 @@
+/// A card set entry for a card.
 class CardSet {
   CardSet({
     required this.setName,
@@ -9,12 +10,25 @@ class CardSet {
     this.setUrl,
   });
 
+  /// Set name.
   final String setName;
+
+  /// Set code.
   final String setCode;
+
+  /// Set rarity.
   final String setRarity;
+
+  /// Set price (USD).
   final String setPrice;
+
+  /// Set rarity code (if provided).
   final String? setRarityCode;
+
+  /// Set edition (if provided).
   final String? setEdition;
+
+  /// Set URL (if provided).
   final String? setUrl;
 
   factory CardSet.fromJson(Map<String, dynamic> json) {

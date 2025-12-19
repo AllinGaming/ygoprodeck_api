@@ -98,7 +98,8 @@ void main() {
       }),
     );
 
-    final response = await client.getCards(query: CardInfoQuery(name: ['Test']));
+    final response =
+        await client.getCards(query: CardInfoQuery(name: ['Test']));
     expect(response.data.first.id, 123);
     expect(calls, 3);
   });

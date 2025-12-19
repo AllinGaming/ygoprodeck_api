@@ -1,3 +1,4 @@
+/// Exception thrown for API errors and HTTP failures.
 class YgoProDeckApiException implements Exception {
   YgoProDeckApiException({
     required this.message,
@@ -5,8 +6,13 @@ class YgoProDeckApiException implements Exception {
     required this.url,
   });
 
+  /// Error message returned by the API.
   final String message;
+
+  /// HTTP status code.
   final int statusCode;
+
+  /// Request URL.
   final Uri url;
 
   @override

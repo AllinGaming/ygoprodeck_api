@@ -1,13 +1,17 @@
 import 'card.dart';
 import 'meta_info.dart';
 
+/// Response wrapper for card info requests.
 class CardInfoResponse {
   CardInfoResponse({
     required this.data,
     this.meta,
   });
 
+  /// Returned card list.
   final List<Card> data;
+
+  /// Pagination metadata (if provided).
   final MetaInfo? meta;
 
   factory CardInfoResponse.fromJson(Map<String, dynamic> json) {

@@ -6,6 +6,7 @@ import 'package:crypto/crypto.dart';
 
 import 'cache_common.dart';
 
+/// File-system cache store for IO platforms.
 class FileCacheStore implements CacheStore, CacheInspector {
   FileCacheStore({required String basePath}) : _baseDir = Directory(basePath) {
     if (!_baseDir.existsSync()) {
@@ -75,6 +76,7 @@ class FileCacheStore implements CacheStore, CacheInspector {
   }
 }
 
+/// Unsupported web storage cache on IO platforms.
 class WebStorageCacheStore implements CacheStore, CacheInspector {
   WebStorageCacheStore({String? prefix}) {
     throw UnsupportedError('WebStorageCacheStore is only available on web.');

@@ -11,8 +11,7 @@ mixin _$StatusState {
   CheckDbVersion? get dbVersion => throw UnimplementedError();
   String? get error => throw UnimplementedError();
 
-  $StatusStateCopyWith<StatusState> get copyWith =>
-      throw UnimplementedError();
+  $StatusStateCopyWith<StatusState> get copyWith => throw UnimplementedError();
 }
 
 abstract class $StatusStateCopyWith<$Res> {
@@ -146,8 +145,7 @@ abstract class _$_StatusStateCopyWith<$Res>
   });
 }
 
-class _$_StatusStateCopyWithImpl<$Res>
-    extends _$StatusStateCopyWithImpl<$Res>
+class _$_StatusStateCopyWithImpl<$Res> extends _$StatusStateCopyWithImpl<$Res>
     implements _$_StatusStateCopyWith<$Res> {
   _$_StatusStateCopyWithImpl(
       _$_StatusState value, $Res Function(_$_StatusState) then)

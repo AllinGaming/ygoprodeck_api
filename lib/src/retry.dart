@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:http/http.dart' as http;
 
+/// Retry policy for transient HTTP failures.
 class RetryPolicy {
   RetryPolicy({
     this.maxAttempts = 3,
@@ -11,9 +12,16 @@ class RetryPolicy {
     Set<int>? retryStatusCodes,
   }) : _retryStatusCodes = retryStatusCodes ?? _defaultRetryStatusCodes;
 
+  /// Maximum attempts per request.
   final int maxAttempts;
+
+  /// Base delay for exponential backoff.
   final Duration baseDelay;
+
+  /// Maximum delay between retries.
   final Duration maxDelay;
+
+  /// Whether to apply jitter.
   final bool jitter;
   final Set<int> _retryStatusCodes;
 

@@ -1,3 +1,4 @@
+/// Detailed set information for a specific set code.
 class CardSetInfo {
   CardSetInfo({
     required this.id,
@@ -8,11 +9,22 @@ class CardSetInfo {
     required this.setPrice,
   });
 
+  /// Card ID.
   final int id;
+
+  /// Card name.
   final String name;
+
+  /// Set name.
   final String setName;
+
+  /// Set code.
   final String setCode;
+
+  /// Set rarity.
   final String setRarity;
+
+  /// Set price (USD).
   final String setPrice;
 
   factory CardSetInfo.fromJson(Map<String, dynamic> json) {

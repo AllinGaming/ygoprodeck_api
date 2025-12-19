@@ -14,8 +14,7 @@ mixin _$ExtrasState {
   String? get archetypesError => throw UnimplementedError();
   String? get setsError => throw UnimplementedError();
 
-  $ExtrasStateCopyWith<ExtrasState> get copyWith =>
-      throw UnimplementedError();
+  $ExtrasStateCopyWith<ExtrasState> get copyWith => throw UnimplementedError();
 }
 
 abstract class $ExtrasStateCopyWith<$Res> {
@@ -69,8 +68,9 @@ class _$ExtrasStateCopyWithImpl<$Res> implements $ExtrasStateCopyWith<$Res> {
             ? _value.archetypes
             : archetypes as List<CardArchetype>?,
         sets: sets == freezed ? _value.sets : sets as List<CardSetListItem>?,
-        randomError:
-            randomError == freezed ? _value.randomError : randomError as String?,
+        randomError: randomError == freezed
+            ? _value.randomError
+            : randomError as String?,
         archetypesError: archetypesError == freezed
             ? _value.archetypesError
             : archetypesError as String?,
@@ -184,8 +184,7 @@ abstract class _$_ExtrasStateCopyWith<$Res>
   });
 }
 
-class _$_ExtrasStateCopyWithImpl<$Res>
-    extends _$ExtrasStateCopyWithImpl<$Res>
+class _$_ExtrasStateCopyWithImpl<$Res> extends _$ExtrasStateCopyWithImpl<$Res>
     implements _$_ExtrasStateCopyWith<$Res> {
   _$_ExtrasStateCopyWithImpl(
       _$_ExtrasState value, $Res Function(_$_ExtrasState) then)
@@ -222,8 +221,9 @@ class _$_ExtrasStateCopyWithImpl<$Res>
             ? _value.archetypes
             : archetypes as List<CardArchetype>?,
         sets: sets == freezed ? _value.sets : sets as List<CardSetListItem>?,
-        randomError:
-            randomError == freezed ? _value.randomError : randomError as String?,
+        randomError: randomError == freezed
+            ? _value.randomError
+            : randomError as String?,
         archetypesError: archetypesError == freezed
             ? _value.archetypesError
             : archetypesError as String?,

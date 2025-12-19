@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'cache_common.dart';
 
+/// Unsupported file cache on web targets.
 class FileCacheStore implements CacheStore {
   FileCacheStore({required String basePath}) {
     throw UnsupportedError('FileCacheStore is not supported on web targets.');
@@ -24,6 +25,7 @@ class FileCacheStore implements CacheStore {
   Future<void> delete(String key) async {}
 }
 
+/// Cache store backed by browser localStorage.
 class WebStorageCacheStore implements CacheStore, CacheInspector {
   WebStorageCacheStore({String? prefix})
       : _prefix = prefix ?? 'ygoprodeck_cache';

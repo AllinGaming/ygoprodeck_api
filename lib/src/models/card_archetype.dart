@@ -1,8 +1,10 @@
+/// Card archetype entry.
 class CardArchetype {
   CardArchetype({
     required this.archetypeName,
   });
 
+  /// Archetype name.
   final String archetypeName;
 
   factory CardArchetype.fromJson(Map<String, dynamic> json) {

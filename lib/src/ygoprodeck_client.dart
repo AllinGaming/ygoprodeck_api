@@ -48,9 +48,7 @@ class YgoProDeckClient {
                   )
                 : null),
         _baseUri = baseUri ?? Uri.parse('https://db.ygoprodeck.com/api/v7/'),
-        _cacheStore = enableCaching
-            ? (cacheStore ?? MemoryCacheStore())
-            : null,
+        _cacheStore = enableCaching ? (cacheStore ?? MemoryCacheStore()) : null,
         _cachePolicy = cachePolicy ?? CachePolicy.defaultPolicy(),
         _cacheMode = cacheMode,
         _allowStaleOnError = allowStaleOnError,
@@ -116,8 +114,7 @@ class YgoProDeckClient {
     final uri = _endpoint('cardsets.php', null);
     final json = await _getJson(uri);
     return (json as List<dynamic>)
-        .map((item) =>
-            CardSetListItem.fromJson(item as Map<String, dynamic>))
+        .map((item) => CardSetListItem.fromJson(item as Map<String, dynamic>))
         .toList();
   }
 
@@ -166,13 +163,10 @@ class YgoProDeckClient {
 
   Future<dynamic> _getJson(Uri uri, {bool bypassCache = false}) async {
     final cacheStore = _cacheStore;
-    final path = uri.pathSegments.isEmpty
-        ? uri.path
-        : uri.pathSegments.last;
+    final path = uri.pathSegments.isEmpty ? uri.path : uri.pathSegments.last;
     final cacheKey = uri.toString();
-    final shouldCache = cacheStore != null &&
-        _cachePolicy.shouldCache(path) &&
-        !bypassCache;
+    final shouldCache =
+        cacheStore != null && _cachePolicy.shouldCache(path) && !bypassCache;
     if (_verboseLogging) {
       _logDebug(
         'Cache mode: ${_cacheMode.name}, enabled=${cacheStore != null}, shouldCache=$shouldCache',
@@ -203,7 +197,8 @@ class YgoProDeckClient {
     }
 
     final response = await _getWithRetry(uri);
-    _logDebug('Status ${response.statusCode} (${response.contentLength ?? 0}B)');
+    _logDebug(
+        'Status ${response.statusCode} (${response.contentLength ?? 0}B)');
     if (_verboseLogging) {
       _logDebug('Response headers: ${response.headers}');
     }

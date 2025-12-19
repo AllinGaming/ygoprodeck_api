@@ -1,3 +1,4 @@
+/// Vendor pricing for a card.
 class CardPrice {
   CardPrice({
     required this.cardmarketPrice,
@@ -7,10 +8,19 @@ class CardPrice {
     required this.coolstuffincPrice,
   });
 
+  /// Price from Cardmarket (EUR).
   final String cardmarketPrice;
+
+  /// Price from TCGplayer (USD).
   final String tcgplayerPrice;
+
+  /// Price from eBay (USD).
   final String ebayPrice;
+
+  /// Price from Amazon (USD).
   final String amazonPrice;
+
+  /// Price from CoolStuffInc (USD).
   final String coolstuffincPrice;
 
   factory CardPrice.fromJson(Map<String, dynamic> json) {

@@ -10,8 +10,7 @@ mixin _$SearchState {
   CardInfoResponse? get response => throw UnimplementedError();
   String? get error => throw UnimplementedError();
 
-  $SearchStateCopyWith<SearchState> get copyWith =>
-      throw UnimplementedError();
+  $SearchStateCopyWith<SearchState> get copyWith => throw UnimplementedError();
 }
 
 abstract class $SearchStateCopyWith<$Res> {
@@ -130,8 +129,7 @@ abstract class _$_SearchStateCopyWith<$Res>
   });
 }
 
-class _$_SearchStateCopyWithImpl<$Res>
-    extends _$SearchStateCopyWithImpl<$Res>
+class _$_SearchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     implements _$_SearchStateCopyWith<$Res> {
   _$_SearchStateCopyWithImpl(
       _$_SearchState value, $Res Function(_$_SearchState) then)

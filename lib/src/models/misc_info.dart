@@ -1,3 +1,4 @@
+/// Additional metadata returned when `misc=yes`.
 class MiscInfo {
   MiscInfo({
     this.betaName,
@@ -15,18 +16,43 @@ class MiscInfo {
     this.genesysPoints,
   });
 
+  /// Temporary or beta card name.
   final String? betaName;
+
+  /// Total views.
   final int? views;
+
+  /// Views this week.
   final int? viewsweek;
+
+  /// Upvotes.
   final int? upvotes;
+
+  /// Downvotes.
   final int? downvotes;
+
+  /// Available formats.
   final List<String>? formats;
+
+  /// Treated-as name.
   final String? treatedAs;
+
+  /// TCG release date.
   final String? tcgDate;
+
+  /// OCG release date.
   final String? ocgDate;
+
+  /// Konami ID.
   final int? konamiId;
+
+  /// Master Duel rarity.
   final String? mdRarity;
+
+  /// Whether the card has an effect.
   final int? hasEffect;
+
+  /// Genesys points (format=genesys).
   final int? genesysPoints;
 
   factory MiscInfo.fromJson(Map<String, dynamic> json) {

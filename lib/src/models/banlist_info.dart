@@ -1,3 +1,4 @@
+/// Banlist status for a card across formats.
 class BanlistInfo {
   BanlistInfo({
     this.banTcg,
@@ -5,8 +6,13 @@ class BanlistInfo {
     this.banGoat,
   });
 
+  /// TCG ban status.
   final String? banTcg;
+
+  /// OCG ban status.
   final String? banOcg;
+
+  /// GOAT format ban status.
   final String? banGoat;
 
   factory BanlistInfo.fromJson(Map<String, dynamic> json) {

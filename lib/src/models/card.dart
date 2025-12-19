@@ -4,6 +4,7 @@ import 'card_price.dart';
 import 'card_set.dart';
 import 'misc_info.dart';
 
+/// Card data returned by `cardinfo.php`.
 class Card {
   Card({
     required this.id,
@@ -28,27 +29,64 @@ class Card {
     this.miscInfo,
   });
 
+  /// Card ID or passcode.
   final int id;
+
+  /// Card name.
   final String name;
+
+  /// Card type (e.g., Effect Monster, Spell Card).
   final String type;
+
+  /// Frame type (e.g., effect, spell, xyz).
   final String frameType;
+
+  /// Card description/effect text.
   final String desc;
+
+  /// YGOPRODeck card page URL.
   final String? ygoprodeckUrl;
 
+  /// ATK value.
   final int? atk;
+
+  /// DEF value.
   final int? def;
+
+  /// Level or Rank.
   final int? level;
+
+  /// Race/type (e.g., Spellcaster).
   final String? race;
+
+  /// Attribute (e.g., DARK).
   final String? attribute;
+
+  /// Pendulum scale.
   final int? scale;
+
+  /// Link value.
   final int? linkval;
+
+  /// Link markers.
   final List<String>? linkmarkers;
+
+  /// Archetype name.
   final String? archetype;
 
+  /// Card sets for this card.
   final List<CardSet>? cardSets;
+
+  /// Card images for this card.
   final List<CardImage>? cardImages;
+
+  /// Vendor prices for this card.
   final List<CardPrice>? cardPrices;
+
+  /// Banlist information.
   final BanlistInfo? banlistInfo;
+
+  /// Misc metadata when `misc=yes`.
   final List<MiscInfo>? miscInfo;
 
   factory Card.fromJson(Map<String, dynamic> json) {

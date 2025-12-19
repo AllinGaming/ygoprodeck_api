@@ -1,3 +1,4 @@
+/// Pagination metadata for card queries.
 class MetaInfo {
   MetaInfo({
     required this.currentRows,
@@ -9,12 +10,25 @@ class MetaInfo {
     this.nextPageOffset,
   });
 
+  /// Rows returned in this response.
   final int currentRows;
+
+  /// Total rows matching the query.
   final int totalRows;
+
+  /// Rows remaining after this page.
   final int rowsRemaining;
+
+  /// Total pages.
   final int totalPages;
+
+  /// Pages remaining after this page.
   final int pagesRemaining;
+
+  /// Next page URL, if available.
   final String? nextPage;
+
+  /// Offset for the next page, if available.
   final int? nextPageOffset;
 
   factory MetaInfo.fromJson(Map<String, dynamic> json) {

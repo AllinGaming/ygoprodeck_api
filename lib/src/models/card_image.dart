@@ -1,3 +1,4 @@
+/// Image URLs for a card artwork.
 class CardImage {
   CardImage({
     required this.id,
@@ -6,9 +7,16 @@ class CardImage {
     this.imageUrlCropped,
   });
 
+  /// Card ID for this image entry.
   final int id;
+
+  /// Full-size image URL.
   final String imageUrl;
+
+  /// Small thumbnail URL.
   final String imageUrlSmall;
+
+  /// Cropped artwork URL.
   final String? imageUrlCropped;
 
   factory CardImage.fromJson(Map<String, dynamic> json) {
