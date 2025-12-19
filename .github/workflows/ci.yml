@@ -17,14 +17,30 @@ jobs:
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
       - name: Install dependencies
         run: dart pub get
       - name: Format
         run: dart format --set-exit-if-changed .
-      - name: Analyze
+      - name: Analyze package
         run: dart analyze lib test
-      - name: Test
+      - name: Test package
         run: dart test
+      - name: Install example dependencies
+        run: |
+          cd example
+          flutter create .
+          flutter pub get
+      - name: Analyze example
+        run: |
+          cd example
+          flutter analyze
+      - name: Test example
+        run: |
+          cd example
+          flutter test
 
   pages:
     runs-on: ubuntu-latest
