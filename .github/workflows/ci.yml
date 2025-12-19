@@ -22,7 +22,7 @@ jobs:
       - name: Format
         run: dart format --set-exit-if-changed .
       - name: Analyze
-        run: dart analyze
+        run: dart analyze lib test
       - name: Test
         run: dart test
 
@@ -51,7 +51,7 @@ jobs:
           color=red
           if (( $(echo "$percent >= 90" | bc -l) )); then color=brightgreen; elif (( $(echo "$percent >= 80" | bc -l) )); then color=green; elif (( $(echo "$percent >= 70" | bc -l) )); then color=yellowgreen; elif (( $(echo "$percent >= 60" | bc -l) )); then color=yellow; fi
           mkdir -p coverage
-          printf '{"schemaVersion":1,"label":"coverage","message":"%s%%","color":"%s"}' "$percent" "$color" > coverage/coverage.json
+          printf '{"schemaVersion":1,"label":"lcov","message":"%s%%","color":"%s"}' "$percent" "$color" > coverage/coverage.json
       - name: Build example web
         run: |
           cd example

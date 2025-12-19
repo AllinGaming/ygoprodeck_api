@@ -6,3 +6,7 @@ linter:
     prefer_const_constructors: true
     prefer_final_locals: true
     always_declare_return_types: true
+
+analyzer:
+  exclude:
+    - "example/**"

@@ -201,6 +201,7 @@ final api = YgoProDeckClient(
 ## Example
 
 See `example/README.md` for a full runnable Flutter example app.
+Requires the Flutter SDK; run `flutter pub get` in the `example` directory.
 
 Hosted example (web): https://allingaming.github.io/ygoprodeck_api/
 
