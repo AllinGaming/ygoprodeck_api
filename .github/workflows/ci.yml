@@ -7,7 +7,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -23,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: dart pub get
       - name: Format
-        run: dart format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed lib test example
       - name: Analyze package
         run: dart analyze lib test
       - name: Test package
@@ -45,6 +47,8 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
@@ -53,6 +57,8 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
       - name: Install badge deps
         run: sudo apt-get update && sudo apt-get install -y bc
       - name: Install dependencies
@@ -80,8 +86,9 @@ jobs:
           cp -r example/build/web/* .pages/
           cp coverage/lcov.info .pages/coverage/lcov.info
           cp coverage/coverage.json .pages/coverage/coverage.json
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .pages
+          path: .pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

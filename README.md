@@ -2,6 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/ygoprodeck_api.svg)](https://pub.dev/packages/ygoprodeck_api)
 [![CI](https://github.com/AllinGaming/ygoprodeck_api/actions/workflows/ci.yml/badge.svg)](https://github.com/AllinGaming/ygoprodeck_api/actions/workflows/ci.yml)
+[![Example](https://img.shields.io/badge/example-live-blue)](https://allingaming.github.io/ygoprodeck_api/)
 [![coverage](https://img.shields.io/endpoint?url=https://allingaming.github.io/ygoprodeck_api/coverage/coverage.json)](https://allingaming.github.io/ygoprodeck_api/coverage/lcov.info)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -201,9 +202,9 @@ final api = YgoProDeckClient(
 ## Example
 
 See `example/README.md` for a full runnable Flutter example app.
+Hosted example (web): https://allingaming.github.io/ygoprodeck_api/
 Requires the Flutter SDK; run `flutter pub get` in the `example` directory.
 
-Hosted example (web): https://allingaming.github.io/ygoprodeck_api/
 
 ## Development
 
@@ -214,7 +215,7 @@ dart test --coverage=coverage
 dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 ```
 
-CI uses GitHub Actions (`.github/workflows/ci.yml`). Coverage is generated as `coverage/lcov.info`.
+CI uses GitHub Actions (`.github/workflows/ci.yml`) and deploys the web example and coverage to GitHub Pages.
 
 ## Attribution
 
