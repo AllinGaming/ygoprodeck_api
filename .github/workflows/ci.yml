@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - name: Install dependencies
+        run: dart pub get
+      - name: Format
+        run: dart format --set-exit-if-changed .
+      - name: Analyze
+        run: dart analyze
+      - name: Test
+        run: dart test
+
+  pages:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Install badge deps
+        run: sudo apt-get update && sudo apt-get install -y bc
+      - name: Install dependencies
+        run: dart pub get
+      - name: Test with coverage
+        run: dart test --coverage=coverage
+      - name: Convert coverage to lcov
+        run: dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
+      - name: Generate coverage badge data
+        run: |
+          percent=$(awk -F',' '/^TN:/{next} /^SF:/{next} /^DA:/{total+=1; if($2>0) covered+=1} END{printf "%.2f", (covered/total)*100}' coverage/lcov.info)
+          color=red
+          if (( $(echo "$percent >= 90" | bc -l) )); then color=brightgreen; elif (( $(echo "$percent >= 80" | bc -l) )); then color=green; elif (( $(echo "$percent >= 70" | bc -l) )); then color=yellowgreen; elif (( $(echo "$percent >= 60" | bc -l) )); then color=yellow; fi
+          mkdir -p coverage
+          printf '{"schemaVersion":1,"label":"coverage","message":"%s%%","color":"%s"}' "$percent" "$color" > coverage/coverage.json
+      - name: Build example web
+        run: |
+          cd example
+          flutter create .
+          flutter pub get
+          flutter build web --base-href /ygoprodeck_api/
+      - name: Prepare pages content
+        run: |
+          mkdir -p .pages/coverage
+          cp -r example/build/web/* .pages/
+          cp coverage/lcov.info .pages/coverage/lcov.info
+          cp coverage/coverage.json .pages/coverage/coverage.json
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .pages

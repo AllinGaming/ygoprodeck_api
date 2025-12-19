@@ -1,0 +1,48 @@
+# Dart/Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+pubspec.lock
+build/
+coverage/
+*.log
+
+# IDEs
+.idea/
+.vscode/
+.DS_Store
+
+# Flutter
+.fvm/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android
+android/.gradle/
+android/captures/
+android/local.properties
+android/key.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# iOS/macOS
+ios/Flutter/ephemeral/
+ios/Flutter/app.flx
+ios/Flutter/App.framework/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Runner.xcworkspace/
+ios/Pods/
+macos/Flutter/ephemeral/
+macos/Pods/
+
+# Windows/Linux
+windows/flutter/ephemeral/
+linux/flutter/ephemeral/
+
+# Web
+web/.dart_tool/
+web/.build/

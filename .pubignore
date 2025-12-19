@@ -1,0 +1,22 @@
+# Tooling
+.dart_tool/
+.pub/
+coverage/
+*.log
+*.iml
+.idea/
+.vscode/
+
+# Example build artifacts
+example/.dart_tool/
+example/build/
+example/coverage/
+example/*.iml
+
+# Flutter platform folders in example (regen as needed)
+example/android/
+example/ios/
+example/macos/
+example/linux/
+example/windows/
+example/web/
