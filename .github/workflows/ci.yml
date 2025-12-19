@@ -30,11 +30,6 @@ jobs:
         run: dart analyze lib test
       - name: Test package
         run: dart test
-      - name: Install example dependencies
-        run: |
-          cd example
-          flutter create .
-          flutter pub get
 
   pages:
     runs-on: ubuntu-latest
