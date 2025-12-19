@@ -205,18 +205,6 @@ See `example/README.md` for a full runnable Flutter example app.
 Hosted example (web): https://allingaming.github.io/ygoprodeck_api/
 Requires the Flutter SDK; run `flutter pub get` in the `example` directory.
 
-
-## Development
-
-```bash
-dart format .
-dart analyze
-dart test --coverage=coverage
-dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
-```
-
-CI uses GitHub Actions (`.github/workflows/ci.yml`) and deploys the web example and coverage to GitHub Pages.
-
 ## Attribution
 
 Yu-Gi-Oh! card data and images are provided by the YGOPRODeck API.
